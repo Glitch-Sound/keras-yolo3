@@ -4,6 +4,7 @@ from yolo import YOLO, detect_video
 from PIL import Image
 
 def detect_img(yolo):
+    '''
     while True:
         img = input('Input image filename:')
         try:
@@ -14,6 +15,13 @@ def detect_img(yolo):
         else:
             r_image = yolo.detect_image(image)
             r_image.show()
+    '''
+    try:
+        image = Image.open(FLAGS.file)
+        r_image = yolo.detect_image(image)
+        r_image.show()
+    except:
+        pass
     yolo.close_session()
 
 FLAGS = None
@@ -47,6 +55,10 @@ if __name__ == '__main__':
     parser.add_argument(
         '--image', default=False, action="store_true",
         help='Image detection mode, will ignore all positional arguments'
+    )
+    parser.add_argument(
+        "--file", nargs='?', type=str, default="",
+        help = "Image file path"
     )
     '''
     Command line positional arguments -- for video detection mode
