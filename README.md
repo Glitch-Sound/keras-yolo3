@@ -10,7 +10,7 @@ A Keras implementation of YOLOv3 (Tensorflow backend) inspired by [allanzelener/
 実験用に色々改修中。。<br>
 
 
-## Dataset
+## Library
 
 Google Colab上は以下を利用.<br>
 何故かGPU版を入れなくてもGPUが認識されてるぽい.<br>
