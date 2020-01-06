@@ -9,6 +9,21 @@ A Keras implementation of YOLOv3 (Tensorflow backend) inspired by [allanzelener/
 フォーク元は[コチラ](https://github.com/qqwweee/keras-yolo3).<br>
 実験用に色々改修中。。<br>
 
+
+## Dataset
+
+Google Colab上は以下を利用.<br>
+何故かGPU版を入れなくてもGPUが認識されてるぽい.<br>
+```
+pip install q keras==2.2.4
+pip install tensorflow==1.15.0
+```
+
+GPU版のインストールが必要な場合はコレ?<br>
+```
+pip install tensorflow-gpu==1.14.0
+```
+
 ---
 
 ## Dataset
