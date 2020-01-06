@@ -64,8 +64,42 @@ batch_size = 8
 
 `yolo_video.py`にて検証する.<br>
 引数にて画像ファイルを指定できるよう改修済み.<br>
-異常箇所に矩形で囲われた画像が表示されるはず.<br>
+異常箇所に矩形情報が出力される.<br>
+環境によっては画像も出力される.<br>
 ```
 #　指定例.
 python yolo_video.py --image --file='hogehoge/Dataset/image/test_00000001.png''
+
+# 出力例.
+Found 1 boxes for img
+error 1.00 (194, 197) (229, 225)
+
+※errorという異常パターンが矩形((194, 197), (229, 225))に100%存在するっていう意味.
+```
+
+---
+
+## Training ~ Test
+
+学習から評価までの流れをコマンドベースでおさらい.<br>
+
+```
+# 環境取得.
+git clone -b demo https://github.com/Glitch-Sound/keras-yolo3.git
+cd keras-yolo3
+
+# 学習データ解凍.
+cd Dataset
+unzip image
+cd ../
+
+# YOLOv3のweights取得＆変換.
+wget https://pjreddie.com/media/files/yolov3.weights
+python convert.py -w yolov3.cfg yolov3.weights model_data/yolo_weights.h5
+
+# 学習.
+python train.py
+
+# 動作確認.
+python yolo_video.py --image --file='hogehoge/Dataset/image/test_00000000.png'
 ```
